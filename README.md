@@ -74,3 +74,7 @@ Rest::put('/books/1', array('title' => 'Your Book Title'));
 Rest::delete('/books/1');
 
 ```
+
+### Versioning
+
+This projetct follows the [Semantic Versioning](http://semver.org/)
