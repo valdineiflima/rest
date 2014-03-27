@@ -19,5 +19,5 @@
             "Rdehnhardt\\Rest": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
