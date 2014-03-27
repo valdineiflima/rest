@@ -1,7 +1,7 @@
 {
     "name": "rdehnhardt/rest",
     "description": "",
-    "keywords": ["laravel","laravel 4","rest","client", "api"],
+    "keywords": ["laravel","laravel 4","rest","client"],
     "type":"library",
     "authors": [
         {
