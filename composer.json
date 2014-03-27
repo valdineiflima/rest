@@ -9,10 +9,24 @@
             "email": "renato@fullsystem.com.br"
         }
     ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "rdehnhardt/rest",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/rdehnhardt/rest",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "4.1.*",
-        "rdehnhardt/curl": "@dev"
+        "rdehnhardt/curl": "dev-master"
     },
     "autoload": {
         "psr-0": {
