@@ -35,8 +35,7 @@ class RestServiceProvider extends ServiceProvider {
      */
     public function register() {
     	$this->app->bind('Rest', function($app) {
-    		$config = $app['config']->get('rest');
-    		return new Rest($config);
+    		return new Rest(\Config::get('rest::config'));
     	});
     	
         $this->app['rest'] = $this->app->share(function($app) {

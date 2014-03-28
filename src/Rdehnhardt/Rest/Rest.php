@@ -98,9 +98,7 @@ class Rest {
 	 * @todo Check Curl Initialize
 	 * @param array $config        	
 	 */
-	public function __construct() {
-		$config = \Config::get('rest::config');
-		
+	public function __construct($config) {
 		if ($config) {
 			$this->initialize($config);
 			
@@ -116,7 +114,7 @@ class Rest {
 	 * Destruct Rest
 	 */
 	public function __destruct() {
-		$this->curl->set_defaults ();
+		$this->curl->set_defaults();
 	}
 	
 	/**
@@ -124,15 +122,23 @@ class Rest {
 	 * @param array $config
 	 */
 	public function initialize($config) {
-		$this->rest_server = @$config ['server'];
+		$this->rest_server = $config['server'];
 		
 		if (substr ( $this->rest_server, - 1, 1 ) != '/') {
 			$this->rest_server .= '/';
 		}
 		
-		( \Config::get('rest::http.auth') ) && $this->http_auth = \Config::get('rest::http.auth');
-		( \Config::get('rest::http.user') ) && $this->http_user = \Config::get('rest::http.user');
-		( \Config::get('rest::http.pass') ) && $this->http_pass = \Config::get('rest::http.pass');
+		if ($config['http']['auth']) {
+			$this->http_auth = $config['http']['auth'];
+			
+			if ($config['http']['user']) {
+				$this->http_user = $config['http']['user'];
+			}
+
+			if ($config['http']['auth']) {
+				$this->http_pass = $config['http']['pass'];
+			}
+		}
 	}
 	
 	/**
