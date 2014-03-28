@@ -2,8 +2,8 @@
 
 namespace Rdehnhardt\Rest;
 
-use Aws\CloudFront\Exception\Exception;
 use Rdehnhardt\Curl\Curl;
+
 class Rest {
 	
 	/**
