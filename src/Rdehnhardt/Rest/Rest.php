@@ -98,7 +98,11 @@ class Rest {
 	 * @todo Check Curl Initialize
 	 * @param array $config        	
 	 */
-	public function __construct($config) {
+	public function __construct($config=null) {
+		if (!$config) {
+			$config = \Config::get('rest::config');
+		}
+		
 		if ($config) {
 			$this->initialize($config);
 			
