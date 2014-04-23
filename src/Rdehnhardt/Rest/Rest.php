@@ -103,11 +103,10 @@ class Rest {
             $config = \Config::get('rest::config');
         }
 
-        if ($config) {
-            $this->initialize($config);
-
+        if ($config && ($config['server'] != '' && $config['server'] != 'YOUR_API_SERVER')) {
             $this->curl = new Curl();
-
+            $this->curl->create($config['server']);
+            $this->initialize($config);
             return $this;
         }
 
@@ -134,10 +133,6 @@ class Rest {
 
         if ($config['http']['auth']) {
             $this->setLogin($config['http']['user'], $config['http']['pass']);
-        }
-        
-        if ($config['debug']) {
-            $this->debug($config['debug']);
         }
     }
     
@@ -286,12 +281,12 @@ class Rest {
      */
     public function debug() {
         $request = $this->curl->debug_request();
-
+        
         echo "=============================================<br/>\n";
         echo "<h2>REST Test</h2>\n";
         echo "=============================================<br/>\n";
         echo "<h3>Request</h3>\n";
-        echo $request ['url'] . "<br/>\n";
+        echo $request['url'] . "<br/>\n";
         echo "=============================================<br/>\n";
         echo "<h3>Response</h3>\n";
 

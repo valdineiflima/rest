@@ -1,7 +1,6 @@
 <?php
 
 return array(
-    'debug' => false,
     'server' => 'YOUR_API_SERVER',
     'http' => array(
         'user' => 'YOUR_USER_API',
