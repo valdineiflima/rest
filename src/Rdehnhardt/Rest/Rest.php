@@ -104,9 +104,8 @@ class Rest {
         }
 
         if ($config && ($config['server'] != '' && $config['server'] != 'YOUR_API_SERVER')) {
-            $this->curl = new Curl();
-            $this->curl->create($config['server']);
             $this->initialize($config);
+            $this->curl = new Curl();
             return $this;
         }
 
