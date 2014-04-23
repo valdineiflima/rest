@@ -3,6 +3,7 @@
     "description": "",
     "keywords": ["laravel","laravel 4","rest","client", "api"],
     "type":"library",
+    "license" : "MIT",
     "authors": [
         {
             "name": "Renato Dehnhardt",
