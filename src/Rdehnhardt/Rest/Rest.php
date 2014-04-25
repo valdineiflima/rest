@@ -10,6 +10,12 @@ class Rest {
      *
      * @var unknown
      */
+    protected $config;
+
+    /**
+     *
+     * @var unknown
+     */
     protected $rest_server;
 
     /**
@@ -101,6 +107,7 @@ class Rest {
     public function __construct($config = null) {
         if (!$config) {
             $config = \Config::get('rest::config');
+            $this->config = $config;
         }
 
         if ($config && ($config['server'] != '' && $config['server'] != 'YOUR_API_SERVER')) {
@@ -142,7 +149,7 @@ class Rest {
      * @param type $password
      */
     public function setLogin($user, $password) {
-        $this->http_auth = $config['http']['auth'];
+        $this->http_auth = $this->config['http']['auth'];
 
         if ($user) {
             $this->http_user = $user;
