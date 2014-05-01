@@ -138,7 +138,7 @@ class Rest {
         }
 
         if ($config['http']['auth']) {
-            $this->setLogin($config['http']['user'], $config['http']['pass']);
+            $this->setLogin($config['http']['user'], $config['http']['pass'], $config['http']['auth']);
         }
     }
     
@@ -148,8 +148,8 @@ class Rest {
      * @param type $user
      * @param type $password
      */
-    public function setLogin($user, $password) {
-        $this->http_auth = $this->config['http']['auth'];
+    public function setLogin($user, $password, $auth) {
+        $this->http_auth = $auth;
 
         if ($user) {
             $this->http_user = $user;
